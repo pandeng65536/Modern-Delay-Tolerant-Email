@@ -2,10 +2,17 @@
 
 CS7CS5-202425 (DISSERTATION)
 
+## Thu 14 Nov 2024
+
+1. revise the report, add Virtual Machine configuration
+   [tc-netem(8) — Linux manual page](https://man7.org/linux/man-pages/man8/tc-netem.8.html)
+2. get latex template
+   [TCD SCSS Thesis Template](https://www.overleaf.com/latex/templates/tcd-scss-thesis-template/hzfwqszvkvcg)
+
 ## Tue 29 Oct 2024
 
 1. make a plan
-2. play with latex: [git repo TCD-Dissertation](https://github.com/pandeng65536/TCD-Dissertation)
+2. play with latex: [on github](https://github.com/pandeng65536/Modern-Delay-Tolerant-Email/tree/main/Report)
 
 - [Delay/Disruption Tolerant Networking (dtn)](https://datatracker.ietf.org/wg/dtn/documents/)
 - [RFC 9171 - Bundle Protocol Version 7](https://datatracker.ietf.org/doc/rfc9171/)

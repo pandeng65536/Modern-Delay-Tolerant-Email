@@ -19,23 +19,25 @@ Read articles:
 
 ## January
 
-Set up an email server.
+Set up Virtual Machine.
 
 ## February
 
-Set up an email client.
+Set up an email server, and an email client.
 
 ## March
 
-Send and receieve email between two clients.
+Send and receive email between two clients. Incorporate security technologies into the email network.
 
 ## April
 
-Incorporate security technologies into the email network.
+(Final Test)
 
 ## May
 
 Set up a DTN, and incorporate email system into it.
+
+Experimental testing.
 
 ## June
 
@@ -43,8 +45,4 @@ Design and implement a new delay-tolerant email system.
 
 ## July
 
-Write dissertation.
-
-## August
-
-Write dissertation.
+Finalizing the dissertation.

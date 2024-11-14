@@ -7,9 +7,9 @@ CS7CS5-202425 (DISSERTATION)
 1. make a plan
 2. play with latex: [git repo TCD-Dissertation](https://github.com/pandeng65536/TCD-Dissertation)
 
-- https://datatracker.ietf.org/wg/dtn/documents/
-- https://datatracker.ietf.org/doc/rfc9171/
-- https://datatracker.ietf.org/doc/html/rfc4838
+- [Delay/Disruption Tolerant Networking (dtn)](https://datatracker.ietf.org/wg/dtn/documents/)
+- [RFC 9171 - Bundle Protocol Version 7](https://datatracker.ietf.org/doc/rfc9171/)
+- [RFC 4838 - Delay-Tolerant Networking Architecture](https://datatracker.ietf.org/doc/html/rfc4838)
 - [RFC 5598: Internet Mail Architecture](https://www.rfc-editor.org/rfc/rfc5598)
 - read about email incl. 2 factor auth, anti spam techniques
 - postfix/dovecot

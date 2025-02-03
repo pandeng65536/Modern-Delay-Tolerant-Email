@@ -2,6 +2,20 @@
 
 CS7CS5-202425 (DISSERTATION)
 
+## Thu 23 Jan 2025
+
+DTN tools and library.
+
+## Thu 12 Dec 2024
+
+Implement Email System first.
+
+## Thu 28 Nov 2024
+
+Implementation of Bundle Protocol.
+
+[DTN Mail Archive](https://mailarchive.ietf.org/arch/browse/dtn/)
+
 ## Thu 14 Nov 2024
 
 1. revise the report, add Virtual Machine configuration

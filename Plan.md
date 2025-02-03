@@ -46,3 +46,30 @@ Design and implement a new delay-tolerant email system.
 ## July
 
 Finalizing the dissertation.
+
+```mermaid
+
+gantt
+    title Modern Delay-Tolerant Email
+    dateFormat  YYYY-MM-DD
+    section Background Research
+    RFC 9171            :done, rfc9171, 2024-11-01, 2024-11-30
+    RFC 4838            :done, rfc4838, 2024-11-01, 2024-11-30
+    RFC 5598            :active, rfc5598, 2024-12-01, 2024-12-31
+    RFC 6238            :active, research, 2024-12-01, 2024-12-31
+    RFC 7208            :active, research, 2024-12-01, 2024-12-31
+    section Environment Setup
+    Virtual Machine               :vm, 2025-01-01, 2025-01-31
+    section Basic Email System
+    Email Server, Client       :mailserver, 2025-02-01, 2025-02-28
+    Security    :security, 2025-03-01, 2025-03-31
+    section DTN Integration
+    Set up DTN  :dtsetup, 2025-04-01, 2025-04-30
+    Experimental Testing         :testing, 2025-05-01, 2025-05-15
+    section DT Email System
+    Design DT Email System   :design, 2025-05-01, 2025-05-31
+    Implement DT Email System:implement, 2025-05-16, 2025-06-30
+    Finalize Dissertation      :dissertation, 2025-07-01, 2025-07-03
+
+```
+

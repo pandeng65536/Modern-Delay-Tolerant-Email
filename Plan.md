@@ -12,6 +12,9 @@ Read articles:
 Read articles:
 
 - [RFC 4838 - Delay-Tolerant Networking Architecture](https://datatracker.ietf.org/doc/html/rfc4838)
+
+  - > [RFC4838阅读笔记 - 知乎](https://zhuanlan.zhihu.com/p/682116449)
+
 - [RFC 5598: Internet Mail Architecture](https://www.rfc-editor.org/rfc/rfc5598)
 - read about email incl. 2 factor auth, anti spam techniques
 - postfix/dovecot

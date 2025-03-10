@@ -2,6 +2,10 @@
 
 CS7CS5-202425 (DISSERTATION)
 
+## Mon 3 Feb 2025
+
+Write note + Test 5 Bundle protocol.
+
 ## Thu 23 Jan 2025
 
 DTN tools and library.

@@ -61,7 +61,31 @@
 \usepackage[pdftex]{graphicx}
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage[colorlinks=true, allcolors=black]{hyperref}
+
+% 插入 Bash 代码
+\usepackage{listings}
 \usepackage{xcolor}
+\lstdefinelanguage{bash}{
+  morekeywords={docker, echo, cat},
+  sensitive=true,
+  morecomment=[l]{\#},
+  morestring=[b]",
+}
+
+\lstset{
+  language=bash,
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{orange},
+  showstringspaces=false,
+  columns=fullflexible,
+  breaklines=true,
+  frame=single,
+  captionpos=b
+}
+\usepackage{array}
+
 \usepackage{caption} % if no caption, no colon
 %\usepackage{sfmath} %use sans-serif in the maths sections too
 \usepackage[parfill]{parskip}    % Begin paragraphs with an empty line rather than an indent
@@ -111,77 +135,77 @@
 \pagenumbering{roman}
 \doublespacing
 
-\section*{Declaration}
-I hereby declare that this \typeofthesis\ is entirely my own work and that it has not been submitted as an exercise for a degree at this or any other university.
+% \section*{Declaration}
+% I hereby declare that this \typeofthesis\ is entirely my own work and that it has not been submitted as an exercise for a degree at this or any other university.
 
-I have read and I understand the plagiarism provisions in the General Regulations of the University Calendar for the current year, found at \url{http://www.tcd.ie/calendar}.
+% I have read and I understand the plagiarism provisions in the General Regulations of the University Calendar for the current year, found at \url{http://www.tcd.ie/calendar}.
 
-I have also completed the Online Tutorial on avoiding plagiarism `Ready Steady Write', located at \url{http://tcd-ie.libguides.com/plagiarism/ready-steady-write}.
-\vspace{1cm}
+% I have also completed the Online Tutorial on avoiding plagiarism `Ready Steady Write', located at \url{http://tcd-ie.libguides.com/plagiarism/ready-steady-write}.
+% \vspace{1cm}
 
-Signed:~\rule{5cm}{0.3pt}\hfill Date:~\rule{5cm}{0.3pt}
-
-
-\newpage
-\chapter{Abstract}
-A short summary of the problem investigated, the approach taken and the key findings. This should not be more that around 400 words.
-
-The must be on a separate page.
+% Signed:~\rule{5cm}{0.3pt}\hfill Date:~\rule{5cm}{0.3pt}
 
 
-what’s the title for our title
-abstract one page
-five paragraphs 
-area and digital twin
-project research questions
-two paragraphs how to solve them 
-paragraph to implement and evaluate
-main findings one paragraphs
-expanding the abstract
+% \newpage
+% \chapter{Abstract}
+% A short summary of the problem investigated, the approach taken and the key findings. This should not be more that around 400 words.
+
+% The must be on a separate page.
 
 
-introduction
-literature review 
-design implementation
-evaluation
-conclusion
+% what’s the title for our title
+% abstract one page
+% five paragraphs 
+% area and digital twin
+% project research questions
+% two paragraphs how to solve them 
+% paragraph to implement and evaluate
+% main findings one paragraphs
+% expanding the abstract
 
 
+% introduction
+% literature review 
+% design implementation
+% evaluation
+% conclusion
 
 
 
-\newpage
-\raggedright %\raggedright turns off justification and hypenation
 
-\section*{\Huge{Acknowledgements}}
-Thanks Mum!
 
-You should acknowledge any help that you have received (for example from technical staff), or input provided by, for example, a company.
-\newpage \tableofcontents
-\newpage \listoffigures
-\newpage \listoftables
-\newpage
-\section*{\Huge{Nomenclature}}
-\begin{tabular}{lp{9cm}l}
-A&Area of the wing&$m^{2}$\\
-B\\
-C& Roman letters first, with capitals\ldots\\
-a&then lower case.\\
-b\\
-c\\
-$\Gamma$&Followed by Greek capitals\ldots\\
-$\alpha$&then lower case greek symbols.\\
-$\beta$\\
-$\epsilon$\\
-TLA&Finally, three letter acronyms and other abbreviations arranged alphabetically\\
-\end{tabular}
-\vspace{2cm}
+% \newpage
+% \raggedright %\raggedright turns off justification and hypenation
 
-If a parameter has a typical unit that is used throughout your report, then it should be included here on the right hand side.
+% \section*{\Huge{Acknowledgements}}
+% Thanks Mum!
 
-If you have a very mathematical report, then you may wish to divide the nomenclature list into functions and variables, and then sub- and super-scripts.
+% You should acknowledge any help that you have received (for example from technical staff), or input provided by, for example, a company.
+% \newpage \tableofcontents
+% \newpage \listoffigures
+% \newpage \listoftables
+% \newpage
+% \section*{\Huge{Nomenclature}}
+% \begin{tabular}{lp{9cm}l}
+% A&Area of the wing&$m^{2}$\\
+% B\\
+% C& Roman letters first, with capitals\ldots\\
+% a&then lower case.\\
+% b\\
+% c\\
+% $\Gamma$&Followed by Greek capitals\ldots\\
+% $\alpha$&then lower case greek symbols.\\
+% $\beta$\\
+% $\epsilon$\\
+% TLA&Finally, three letter acronyms and other abbreviations arranged alphabetically\\
+% \end{tabular}
+% \vspace{2cm}
 
-Note that Roman mathematical symbols are typically in a serif font in italics.
+% If a parameter has a typical unit that is used throughout your report, then it should be included here on the right hand side.
+
+% If you have a very mathematical report, then you may wish to divide the nomenclature list into functions and variables, and then sub- and super-scripts.
+
+% Note that Roman mathematical symbols are typically in a serif font in italics.
 
 \mainmatter
 \input{introduction/introduction.tex}

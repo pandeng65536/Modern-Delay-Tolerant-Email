@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  mail1:
+    build: .
+    hostname: mail1
+    container_name: mail1
+    environment:
+      - HOSTNAME=mail1
+      - DOMAIN=example.com
+    networks:
+      mail-network:
+        aliases:
+          - mail1.example.com
+
+  mail2:
+    build: .
+    hostname: mail2
+    container_name: mail2
+    environment:
+      - HOSTNAME=mail2
+      - DOMAIN=example.com
+    networks:
+      mail-network:
+        aliases:
+          - mail2.example.com
+
+networks:
+  mail-network:
+    driver: bridge

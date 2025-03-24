@@ -1,6 +1,63 @@
 \chapter{Introduction - Chapter}
-\section{Section}
 
+\section{Email Protocol}
+
+\begin{itemize}
+    \item \textbf{MUA (Mail User Agent)}: Also known as the email client, used by end users to send and receive emails.
+    \item \textbf{MSA (Mail Submission Agent)}: Receives emails from the MUA and forwards them to the MTA.
+    \item \textbf{MTA (Mail Transfer Agent)}: Transfers email between servers.
+    \item \textbf{MDA (Mail Delivery Agent)}: Delivers the email to the recipient’s mailbox.
+    \item Note: Dovecot refers to the MDA as \textbf{LDA (Local Delivery Agent)}.
+\end{itemize}
+  
+\begin{table}[h!]
+    \centering
+    \caption{Common Email Protocols and Their Port Numbers}
+    \begin{tabular}{>{\bfseries}l l l}
+    \toprule
+    Protocol & Description & Port \\
+    \midrule
+    IMAP     & Internet Message Access Protocol & 143 \\
+    IMAPS    & IMAP over SSL/TLS               & 993 \\
+    POP3     & Post Office Protocol v3         & 110 \\
+    POP3S    & POP3 over SSL/TLS               & 995 \\
+    SMTP     & Simple Mail Transfer Protocol   & 25 \\
+    SMTPS    & SMTP over SSL/TLS               & 465 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{STARTTLS Support}
+
+\noindent \textbf{STARTTLS} is a command that upgrades a plaintext connection to a secure one using SSL/TLS, without changing the default ports. It can be used with:
+
+\begin{itemize}
+  \item IMAP on port 143
+  \item POP3 on port 110
+  \item SMTP on port 25
+\end{itemize}
+
+\section{Email Server}
+
+\begin{lstlisting}[caption={Run Email Server Using Docker}]
+    docker-compose up -d
+    
+    # Send email
+    docker exec -it mail1 bash
+    echo "Hello from mail1" | mail -s "Test Email" mail2@mail2.example.com
+    
+    docker exec -it mail2 bash
+    cat /var/mail/mail2
+    
+    # Reply email
+    echo "Reply from mail2" | mail -s "Test Reply" mail1@mail1.example.com
+    
+    cat /var/mail/mail1
+    
+    docker-compose down -v
+\end{lstlisting}
+
+\section{Section}
 \subsection{Subsection}
 \paragraph{Paragraph
 As specified in 
@@ -20,5 +77,3 @@ the Bundle Protocol defines...}
 \subsection{Subsection}
 
 \subsubsection{Subsubsection}
-
-\section{Aims}

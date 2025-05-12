@@ -2,6 +2,14 @@
 
 CS7CS5-202425 (DISSERTATION)
 
+## Mon 7 April 2025
+
+Routing at the IP layer (Make all packages go through delay server)
+
+## Mon 24 March 2025
+
+Set up two mail servers with Docker Compose to enable email sending and receiving.
+
 ## Mon 3 Feb 2025
 
 Write note + Test 5 Bundle protocol.

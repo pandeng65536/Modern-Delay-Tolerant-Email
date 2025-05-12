@@ -6,6 +6,14 @@ HOSTNAME=${HOSTNAME:-"mailserver"}
 DOMAIN=${DOMAIN:-"example.com"}
 FQDN="$HOSTNAME.$DOMAIN"
 
+# 设置relayhost为中间Nginx代理服务器，地址通过环境变量 RELAY_HOST 指定
+if [ ! -z "$RELAY_HOST" ]; then
+    postconf -e "relayhost = [$RELAY_HOST]:25"
+else
+    echo "Error: RELAY_HOST environment variable is not set. Exiting."
+    exit 1
+fi
+
 # Configure Postfix
 postconf -e "myhostname = $FQDN"
 postconf -e "mydomain = $DOMAIN"
@@ -16,6 +24,12 @@ postconf -e "inet_interfaces = all"
 postconf -e "inet_protocols = all"
 postconf -e "alias_maps = hash:/etc/aliases"
 postconf -e "smtpd_recipient_restrictions = permit_mynetworks permit_sasl_authenticated reject_unauth_destination"
+# # 设置relayhost为代理服务器
+# postconf -e "relayhost = [mailproxy]:25"
+# # 如果RELAY_HOST环境变量存在，使用它
+# if [ ! -z "$RELAY_HOST" ]; then
+#     postconf -e "relayhost = [$RELAY_HOST]:25"
+# fi
 
 # Create user
 useradd -m -s /bin/bash $HOSTNAME || echo "User already exists"

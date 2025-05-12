@@ -1,4 +1,4 @@
-![image-20250310055341701](https://mdnote-bucket.oss-cn-qingdao.aliyuncs.com/img/image-20250310055341701.png)
+![image-20250310055341701](https://minio.8117.me/mdnote-bucket/img/image-20250310055341701.png)
 
 [ION-DTN](https://ion-dtn.readthedocs.io/en/latest/ION-Quick-Start-Guide/): Passed the 'bping' test
 

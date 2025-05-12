@@ -1,30 +1,49 @@
-version: '3'
-
 services:
+  mailproxy:
+    build: ./delay-server
+    hostname: mailproxy
+    container_name: mailproxy
+    privileged: true
+    ports:
+      - "80:80"
+      - "443:443"
+      - "25:25"    # SMTP
+      - "143:143"  # IMAP
+      - "110:110"  # POP3
+    networks:
+      - mail1_net
+      - mail2_net
+
   mail1:
-    build: .
+    build: ./mail-server
     hostname: mail1
     container_name: mail1
     environment:
       - HOSTNAME=mail1
       - DOMAIN=example.com
+      - RELAY_HOST=mailproxy
     networks:
-      mail-network:
-        aliases:
-          - mail1.example.com
+      - mail1_net
 
   mail2:
-    build: .
+    build: ./mail-server
     hostname: mail2
     container_name: mail2
     environment:
       - HOSTNAME=mail2
       - DOMAIN=example.com
+      - RELAY_HOST=mailproxy
     networks:
-      mail-network:
-        aliases:
-          - mail2.example.com
+      - mail2_net
 
 networks:
-  mail-network:
+  mail1_net:
     driver: bridge
+    ipam:
+      config:
+        - subnet: 172.22.1.0/24
+  mail2_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.22.2.0/24

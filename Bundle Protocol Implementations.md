@@ -37,7 +37,7 @@ Notes
 
 Ronny Bull: [CNERT2024-v2.pdf](https://ntrs.nasa.gov/api/citations/20240002839/downloads/CNERT2024-v2.pdf) , adapted and extended from Internet Society Interplanetary Chapter Pilot Projects Working Group’s analysis ([IPNSIG PWG](https://ipnsig-pwg.github.io/)).
 
-![image-20250203111546729](https://mdnote-bucket.oss-cn-qingdao.aliyuncs.com/img/image-20250203111546729.png)
+![image-20250203111546729](https://minio.8117.me/mdnote-bucket/img/image-20250203111546729.png)
 
 Lars Baumgaertner: [dtn7/awesome-dtn: A curated list of awesome delay- and disruption-tolerant networking](https://github.com/dtn7/awesome-dtn)
 

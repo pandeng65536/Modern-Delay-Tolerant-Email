@@ -44,20 +44,34 @@
     
     # Send email
     docker exec -it mail1 bash
-    echo "Hello from mail1" | mail -s "Test Email" mail2@mail2.example.com
+    echo "Hello from mail1" | mail -s "Test Email" user1@mail.2.com
     
     docker exec -it mail2 bash
-    cat /var/mail/mail2
+    cat /var/mail/user1
     
     # Reply email
-    echo "Reply from mail2" | mail -s "Test Reply" mail1@mail1.example.com
+    echo "Reply from mail2" | mail -s "Test Reply" user1@mail.1.com
     
-    cat /var/mail/mail1
+    cat /var/mail/user1
     
     docker-compose down -v
 \end{lstlisting}
 
-\section{Section}
+\section{simulate the network}
+0. WSL2 cannot be used because tc is not supported.
+
+1. Use wbitt/network-multitool as the base image for the delay-server.
+
+2. Create two distinct Docker networks and configure other containers (e.g., mail1, mail2) to use the delay-server as their default gateway by modifying their internal routing tables.
+
+3. On the delay-server, apply iptables MASQUERADE rules for traffic routed between the networks, and add network delay to its interfaces using tc.
+
+4. In the client containers (e.g., mail1, mail2), update their /etc/hosts files to resolve hostnames of other services to their respective IP addresses across the different networks.
+
+5. Give priority to resolving domain names with the local hosts file by setting smtp host lookup = native.
+
+6. Create transport maps to prevent Postfix from looking up MX records.
+
 \subsection{Subsection}
 \paragraph{Paragraph
 As specified in 

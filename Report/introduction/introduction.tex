@@ -57,7 +57,7 @@
     docker-compose down -v
 \end{lstlisting}
 
-\section{simulate the network}
+\section{Simulate the Network}
 0. WSL2 cannot be used because tc is not supported.
 
 1. Use wbitt/network-multitool as the base image for the delay-server.
@@ -72,22 +72,40 @@
 
 6. Create transport maps to prevent Postfix from looking up MX records.
 
-\subsection{Subsection}
-\paragraph{Paragraph
-As specified in 
-\cite{rfc9171}, 
-\cite{rfc4838}, 
-\cite{rfc5598}, 
-\cite{rfc6238}, 
-\cite{rfc6749}, 
-\cite{rfc7208}, 
-\cite{rfc6376}, 
-\cite{fall2003delay}, 
-\cite{jain2004routing}, 
-\cite{rfc5321}, 
-the Bundle Protocol defines...}
-\subparagraph{Subparagraph}
+\section{Email Server Solution}
 
-\subsection{Subsection}
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|p{2.6cm}|p{3.2cm}|p{3.2cm}|p{3.2cm}|p{3.2cm}|}
+\hline
+\textbf{Feature} & \textbf{maddy} & \textbf{Mailcow} & \textbf{iRedMail} & \textbf{Mail-in-a-Box} \\
+\hline
+Deployment & Docker & Docker Compose & Manual & Manual \\
+\hline
+MTA & maddy & Postfix & Postfix & Postfix \\
+\hline
+Mail Storage & maddy & Dovecot & Dovecot & Dovecot \\
+\hline
+User Storage & File / SQLite/ Postgres/MySQL & MySQL & MySQL / Postgres / LDAP & SQLite \\
+\hline
+Security Auth & DKIM / SPF / DMARC & DKIM / SPF / DMARC/ 2FA /SSL & DKIM / SPF / DMARC & DKIM / SPF / DMARC / SSL \\
+\hline
+Antispam & (Rspamd) & Rspamd & SpamAssassin & SpamAssassin \\
+\hline
+Antivirus & (ClamAV) & ClamAV & ClamAV & ClamAV \\
+\hline
+Content Filter & (Sieve) & Sieve & Amavisd & Amavisd \\
+\hline
+Admin Panel & (listmonk) & Web Panel & iRedAdmin & Web Panel \\
+\hline
+Webmail & (Roundcube) & SOGo & Roundcube/ SOGo & Roundcube \\
+\hline
+Desktop Client & (Thunderbird) & (Thunderbird) & (Thunderbird) & (Thunderbird) \\
+\hline
+Bulk/Lists & (listmonk) & Groups (built-in) & (Mailman) & Aliases / Forward \\
+\hline
+\end{tabular}
+\caption{Comparison of mail system components and recommended technologies}
+\end{table}
 
-\subsubsection{Subsubsection}

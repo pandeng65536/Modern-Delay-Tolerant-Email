@@ -46,14 +46,15 @@ graphConfig = {
 
 docker compose up -d --build
 
-docker exec -it mail1 bash
-cat /var/log/mail.log
+#cat /var/log/mail.log
+
 # Send email
-docker exec -it mail1 bash
+#docker exec -it mail1 bash
 echo "Hello from mail1" | mail -s "Test Email" user1@mail.2.com
 
-docker exec -it mail2 bash
-cat /var/mail/user1
+#docker exec -it mail2 bash
+ls /home/user1/Maildir/new/
+cat /home/user1/Maildir/new/
 
 # Reply emial
 echo "Reply from mail2" | mail -s "Test Reply" user1@mail.1.com
@@ -61,6 +62,8 @@ echo "Reply from mail2" | mail -s "Test Reply" user1@mail.1.com
 cat /var/mail/user1
 cat /var/log/mail.log
 
+# mail1 - 172.21.0.3
+# mail2 - 172.22.0.3
 
 docker compose down -v
 ```
@@ -123,6 +126,96 @@ sequenceDiagram
     C->>S: QUIT
     S->>C: 221 2.0.0 Bye
     note right of C: SMTP 会话正常结束
-
 ```
 
+
+
+ion -> bp -> ltp -> ipn
+
+```bash
+# 修改配置文件 2.bench.udp -> 
+#bench.ionconfig
+删除 wmKey 66236
+删除 sdrName ion2
+#bench.bprc
+a induct udp 172.21.0.3:2113 udpcli
+a outduct udp 172.22.0.3:3113 'udpclo 1'
+#bench.ipnrc
+a plan 3 udp/172.22.0.3:3113
+
+# 修改配置文件 3.bench.udp -> 
+#bench.ionconfig
+删除 wmKey 66236
+删除 sdrName ion2
+#bench.bprc
+a induct udp 172.22.0.3:3113 udpcli
+a outduct udp 172.21.0.3:2113 'udpclo 1'
+#bench.ipnrc
+a plan 2 udp/172.21.0.3:2113
+
+# 启动ION-DTN
+cd /usr/local/src/ION-DTN/demos/bench-udp/3.bench.udp
+./ionstart
+cd /usr/local/src/ION-DTN/demos/bench-udp/2.bench.udp
+./ionstart
+
+# 测试
+bpcounter ipn:3.2 3
+bpdriver 3 ipn:2.2 ipn:3.2 -10000
+
+bpsink ipn:3.2
+bpsource ipn:3.2 <<EOF
+From: alice@ion
+To: bob@ion
+Subject: Multi-line Test
+
+Hello Bob,
+This is the first line.
+This is the second line.
+!
+EOF
+```
+
+
+
+./ionstart 启动配置文件顺序
+
+```bash
+# .ionrc
+1 2 bench.ionconfig	# 初始化 ION 节点，设置为 2 号，用 .ionconfig 文件里的参数来配置数据存储区和共享内存等核心资源
+s					# 启动 ION 节点
+m horizon +0		# 持续预测未来网络是否会发生拥塞
+# .ionconfig
+#wmKey 66236
+#sdrName ion2
+wmSize 50000000
+configFlags 1
+heapWords 20000000
+
+# global.ionrc
+m horizon  +0
+a range    +0 +600		2 3   1
+a contact  +0 +600		2 3   100000
+a contact  +0 +600		3 2   100000
+
+# bench.ionsecrc
+1
+
+# [bench.ltprc]
+
+# .bprc
+1
+a scheme ipn 'ipnfw' 'ipnadminep'
+a endpoint ipn:2.0 x
+a endpoint ipn:2.1 x
+a endpoint ipn:2.2 x
+a endpoint ipn:2.64 x
+a endpoint ipn:2.65 x
+a protocol udp 1400 100
+a induct udp 172.21.0.3:2113 udpcli
+a outduct udp 172.22.0.3:3113 'udpclo 1'
+r 'ipnadmin bench.ipnrc'
+s
+# ipnrc
+a plan 3 udp/172.22.0.3:3113
+```

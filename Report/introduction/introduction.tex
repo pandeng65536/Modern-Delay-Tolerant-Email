@@ -109,3 +109,6 @@ Bulk/Lists & (listmonk) & Groups (built-in) & (Mailman) & Aliases / Forward \\
 \caption{Comparison of mail system components and recommended technologies}
 \end{table}
 
+\section{Thunderbird}
+
+I am running the Thunderbird graphical MUA inside a container, using Postfix to send and Dovecot to receive mail. To render the UI on my host, I use Wayland Socket Passthrough, which mounts the host's Wayland socket into the container. This allows me to configure and use Thunderbird's graphical interface directly on my Wayland desktop.

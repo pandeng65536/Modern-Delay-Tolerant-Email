@@ -37,27 +37,32 @@ graphConfig = {
 ```
 
 ```bash
-#docker build -t mail-server .
-#docker network create mail-network
+tc qdisc del dev eth0 root
+tc qdisc add dev eth0 root netem delay 500ms
+tc qdisc replace dev eth0 root netem delay 0ms
 
-#docker run -d --name mail1 --hostname mail1 --network mail-network -e HOSTNAME=mail1 -e DOMAIN=example.com mail-server
-
-#docker run -d --name mail2 --hostname mail2 --network mail-network -e HOSTNAME=mail2 -e DOMAIN=example.com mail-server
-
+cd Code/
+xhost +
 docker compose up -d --build
+docker compose exec mail-3 /bin/bash
+thunderbird
 
-#cat /var/log/mail.log
+# mail--1
+# user@mail-1.a.com
+# mail--2
+# user@mail-2.a.com
+
 
 # Send email
 #docker exec -it mail1 bash
-echo "Hello from mail1" | mail -s "Test Email" user1@mail.2.com
+echo "Hello from mail1" | mail -s "Test Email" user1@mail-2.a.com
 
 #docker exec -it mail2 bash
 ls /home/user1/Maildir/new/
 cat /home/user1/Maildir/new/
 
 # Reply emial
-echo "Reply from mail2" | mail -s "Test Reply" user1@mail.1.com
+echo "Reply from mail2" | mail -s "Test Reply" user1@mail-1.a.com
 
 cat /var/mail/user1
 cat /var/log/mail.log
@@ -154,9 +159,9 @@ a outduct udp 172.21.0.3:2113 'udpclo 1'
 a plan 2 udp/172.21.0.3:2113
 
 # 启动ION-DTN
-cd /usr/local/src/ION-DTN/demos/bench-udp/3.bench.udp
-./ionstart
 cd /usr/local/src/ION-DTN/demos/bench-udp/2.bench.udp
+./ionstart
+cd /usr/local/src/ION-DTN/demos/bench-udp/3.bench.udp
 ./ionstart
 
 # 测试

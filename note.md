@@ -4,6 +4,8 @@
 
 互联网之前发明 ARPANET  Ray Tomlinson  @
 
+
+
 ## 协议
 
 MUA的全称是Mail User Agent、email client
@@ -38,19 +40,52 @@ graphConfig = {
 
 ```bash
 tc qdisc del dev eth0 root
-tc qdisc add dev eth0 root netem delay 500ms
-tc qdisc replace dev eth0 root netem delay 0ms
-
+tc qdisc add dev eth0 root netem delay 500ms loss 50%
+tc qdisc replace dev eth0 root netem delay 0ms loss 10%
+tcpdump -i eth0 -w eth0_traffic2.pcap
+# 从虚拟机图形界面启动
 cd Code/
 xhost +
 docker compose up -d --build
 docker compose exec mail-3 /bin/bash
 thunderbird
 
-# mail--1
-# user@mail-1.a.com
-# mail--2
-# user@mail-2.a.com
+mail--1
+user@mail-1.a.com
+mail--2
+user@mail-2.a.com
+
+tcpdump -i eth0 -w eth0_traffic.pcap
+ip.addr == 172.21.0.3 or ip.addr == 172.22.0.3
+(ip.addr == 172.21.0.3 or ip.addr == 172.22.0.3) and !(ip.addr == 172.21.0.4)
+# 安装bpmail
+git clone https://github.com/250MHz/bpmail.git
+#gmime
+cd /usr/local/src/gmime-3.2.15
+./configure --prefix=/usr --disable-static && make
+make install
+pkg-config --modversion gmime-3.0
+#c-ares
+cd /usr/local/src/c-ares-1.34.4
+mkdir build &&
+cd    build &&
+cmake  -D CMAKE_INSTALL_PREFIX=/usr .. &&
+make
+make install
+pkg-config --modversion libcares
+#meson python3
+apt install meson
+apt install python3-venv
+python3 -m venv my_project_env
+source my_project_env/bin/activate
+pip install pytest dnslib
+#bpmail
+meson setup build
+meson compile -C build
+meson test -C build
+meson install -C build
+
+apt install python3-pip
 
 
 # Send email
@@ -74,6 +109,29 @@ docker compose down -v
 ```
 
 tc ca thunderbird
+
+a endpoint ipn:2.129 q
+
+batchmail.sh
+
+```bash
+#!/bin/bash
+
+for i in $(seq 1 1000); do
+    subject="Test$(printf '%03d' "$i")"
+    {
+        echo "Subject: $subject"
+        echo "To: user@mail-2.a.com"
+        echo
+        echo "Hello"
+    } | /usr/sbin/sendmail -f "user@mail-1.a.com" -t
+
+    echo "Sent $subject"
+    sleep 1
+done
+```
+
+
 
 ```mermaid
 sequenceDiagram
@@ -133,28 +191,46 @@ sequenceDiagram
     note right of C: SMTP 会话正常结束
 ```
 
+检查版本
 
+```bash
+bpversion
+
+ionadmin
+: v
+```
+
+bench.dtpcrc
+1
+w 1
+a profile 21 5 1000 10 600 0.1 dtn:none
+a profile 22 5 1000 10 600 0.2 dtn:none
+s
+
+dtpcadmin bench.dtpcrc
+
+mail-2.a.com  smtp:[172.22.0.3]:25
 
 ion -> bp -> ltp -> ipn
 
 ```bash
 # 修改配置文件 2.bench.udp -> 
-#bench.ionconfig
-删除 wmKey 66236
-删除 sdrName ion2
 #bench.bprc
 a induct udp 172.21.0.3:2113 udpcli
 a outduct udp 172.22.0.3:3113 'udpclo 1'
+#bench.ionconfig
+删除 wmKey 66236
+删除 sdrName ion2
 #bench.ipnrc
 a plan 3 udp/172.22.0.3:3113
 
 # 修改配置文件 3.bench.udp -> 
-#bench.ionconfig
-删除 wmKey 66236
-删除 sdrName ion2
 #bench.bprc
 a induct udp 172.22.0.3:3113 udpcli
 a outduct udp 172.21.0.3:2113 'udpclo 1'
+#bench.ionconfig
+删除 wmKey 66236
+删除 sdrName ion2
 #bench.ipnrc
 a plan 2 udp/172.21.0.3:2113
 
@@ -164,6 +240,23 @@ cd /usr/local/src/ION-DTN/demos/bench-udp/2.bench.udp
 cd /usr/local/src/ION-DTN/demos/bench-udp/3.bench.udp
 ./ionstart
 
+# bpmail
+dtpcadmin bench.dtpcrc
+bpmailrecv --allow-invalid-mime --no-verify-ipn -t 1
+bpmailsend 21 ipn:3.129 < ml.txt
+From: alice@example.com
+To: bob@example.net
+Subject: Hello
+
+This is the body of the message.
+
+-- 
+Alice
+
+bp        unix  -       n       n       -       -       pipe
+        flags=ODR user=user argv=/usr/local/bin/bpmailsend -t 1 21 ${nexthop}
+
+mail-2.a.com   bp:ipn:3.129 
 # 测试
 bpcounter ipn:3.2 3
 bpdriver 3 ipn:2.2 ipn:3.2 -10000
@@ -179,6 +272,8 @@ This is the first line.
 This is the second line.
 !
 EOF
+
+tcpdump -i any 'udp port 2113 or udp port 3113'
 ```
 
 

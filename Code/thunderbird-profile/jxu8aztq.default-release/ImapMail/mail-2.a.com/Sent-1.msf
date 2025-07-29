@@ -1,0 +1,68 @@
+// <!-- <mdb:mork:z v="1.4"/> -->
+< <(a=c)> // (f=iso-8859-1)
+  (B8=ProtoThreadFlags)(B9=folderName)
+  (BA=dobayes.mailnews@mozilla.org#junk)(BB=storeToken)(BC=junkscore)
+  (BD=keywords)(BE=ns:msg:db:row:scope:ops:all)
+  (BF=ns:msg:db:table:kind:ops)(C0=columnStates)(C1=sortType)
+  (C2=sortOrder)(C3=viewFlags)(C4=viewType)(C5=MRUTime)(C6=sortColumns)
+  (C7=customSortCol)(C8=imageSize)(C9=recipient_names)
+  (80=ns:msg:db:row:scope:msgs:all)(81=subject)(82=sender)(83=message-id)
+  (84=references)(85=recipients)(86=date)(87=size)(88=flags)(89=priority)
+  (8A=label)(8B=numLines)(8C=ccList)(8D=bccList)(8E=msgThreadId)
+  (8F=threadId)(90=threadFlags)(91=threadNewestMsgDate)(92=children)
+  (93=unreadChildren)(94=threadSubject)(95=msgCharSet)
+  (96=ns:msg:db:table:kind:msgs)(97=ns:msg:db:table:kind:thread)
+  (98=ns:msg:db:table:kind:allthreads)
+  (99=ns:msg:db:row:scope:threads:all)(9A=threadParent)(9B=threadRoot)
+  (9C=msgOffset)(9D=offlineMsgSize)
+  (9E=ns:msg:db:row:scope:dbfolderinfo:all)
+  (9F=ns:msg:db:table:kind:dbfolderinfo)(A0=numMsgs)(A1=numNewMsgs)
+  (A2=folderSize)(A3=expungedBytes)(A4=folderDate)(A5=highWaterKey)
+  (A6=mailboxName)(A7=UIDValidity)(A8=totPendingMsgs)
+  (A9=unreadPendingMsgs)(AA=expiredMark)(AB=version)(AC=forceReparse)
+  (AD=fixedBadRefThreading)(AE=onlineName)(AF=imapFlags)
+  (B0=useServerRetention)(B1=highestModSeq)(B2=highestRecordedUID)
+  (B3=ns:msg:db:row:scope:pending:all)(B4=ns:msg:db:table:kind:pending)
+  (B5=dateReceived)(B6=gloda-id)(B7=gloda-dirty)>
+<(80=1)(8F=fffffffe)(8C=6887987b)(81=0)>
+[1:m(^9B=1)(^8F^8F)(^91^8C)(^90=0)(^92=1)]
+
+<(91=81)(88=mail--2 <user@mail-2.a.com>)(89=user@mail-1.a.com)(8A=Reply)
+  (8B=a6d1f451-7309-4cf8-bea2-2dc26e148d26@mail-2.a.com)(87=)(8D=UTF-8)
+  (84=161)(8E=ffffffff)(90=388)(92=194)(93=d)(94=24)(99
+    =0|user@mail-1.a.com)>
+{1:^80 {(k^96:c)(s=9)} 
+  [1(^88=81)(^82^88)(^85^89)(^81^8A)(^83^8B)(^84=)(^B5^8C)(^86^8C)(^89=1)
+    (^95^8D)(^87^84)(^9A^8E)(^8E^8F)(^B8=0)(^BB^90)(^9D^92)(^8B=d)(^B6=24)
+    (^BD=)(^C9^99)]}
+{FFFFFFFE:^80 {(k^97:c)(s=9)1:m } 1 }
+{FFFFFFFD:^99 {(k^98:c)(s=9)} [FFFFFFFE(^94^8A)]}
+
+<(82=Sent)(83=e000)(85=8082214)(86=68878a4e)(9C=1753759071)(96=12)(97=2)
+  (98=$122)>
+{1:^9E {(k^9F:c)(s=9)} 
+  [1(^AB=1)(^AC=0)(^AD=1)(^AE^82)(^A0=1)(^A8=0)(^AF^83)(^A5=1)(^B0=1)
+    (^B1=0)(^A6^82)(^A3^84)(^88^85)(^A7^86)(^B2=1)(^C5^9C)(^C1=12)(^C2=2)
+    (^C3=1)(^C4=0)(^C6^98)]}
+
+@$${1{@
+<(9D=1753759467)>[1:^9E(^C5^9D)]
+@$$}1}@
+
+@$${2{@
+{-1:^BE {(k^BF:c)(s=9)} }
+@$$}2}@
+
+@$${4{@
+<(9E=1753759484)>[1:^9E(^C5^9E)]
+@$$}4}@
+
+@$${5{@
+@$$}5}@
+
+@$${7{@
+<(9F=1753759489)>[1:^9E(^C5^9F)]
+@$$}7}@
+
+@$${8{@
+@$$}8}@

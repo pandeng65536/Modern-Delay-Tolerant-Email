@@ -1,3 +1,0 @@
-{"timestamp":43206574,"category":"mail","name":"ui_interaction","extra":{"id":"navContext-delete","glean_timestamp":"1753759464045","source":"message-display"}}
-{"timestamp":43225565,"category":"mail","name":"ui_interaction","extra":{"id":"navContext-delete","source":"message-display","glean_timestamp":"1753759483036"}}
-{"timestamp":43235823,"category":"mail","name":"ui_interaction","extra":{"id":"messenger-window-close-button","source":"toolbox","glean_timestamp":"1753759493295"}}

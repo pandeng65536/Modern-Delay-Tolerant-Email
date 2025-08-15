@@ -22,8 +22,6 @@ services:
         ipv4_address: 172.21.0.3
     cap_add:
       - NET_ADMIN
-    ports:
-      - "25:25"
 
   mail-2:
     build: ./mail-server
@@ -37,14 +35,12 @@ services:
         ipv4_address: 172.22.0.3
     cap_add:
       - NET_ADMIN
-    ports:
-      - "250:25"
 
-  mail-3:
+  client-1:
     build: ./mail-server
-    hostname: mail-3
+    hostname: client-1
     environment:
-      - HOSTNAME=mail-3
+      - HOSTNAME=client-1
       - DOMAIN=a.com
       - GATEWAY=172.21.0.2
       - MOZ_ENABLE_WAYLAND=1
@@ -56,6 +52,25 @@ services:
     networks:
       mail-1_net:
         ipv4_address: 172.21.0.4
+    cap_add:
+      - NET_ADMIN
+
+  client-2:
+    build: ./mail-server
+    hostname: client-2
+    environment:
+      - HOSTNAME=client-2
+      - DOMAIN=a.com
+      - GATEWAY=172.22.0.2
+      - MOZ_ENABLE_WAYLAND=1
+      - WAYLAND_DISPLAY=${WAYLAND_DISPLAY}
+      - XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR}
+    volumes:
+      - ${XDG_RUNTIME_DIR}/${WAYLAND_DISPLAY}:${XDG_RUNTIME_DIR}/${WAYLAND_DISPLAY}:ro
+      - /home/peanuts/Code/thunderbird-profile-2:/root/.thunderbird
+    networks:
+      mail-2_net:
+        ipv4_address: 172.22.0.4
     cap_add:
       - NET_ADMIN
 

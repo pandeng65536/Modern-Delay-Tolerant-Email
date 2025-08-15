@@ -28,7 +28,7 @@
 %% Do not put your Student ID in the document, as TCD will not publish
 %% documents that contain both your name and your Student ID.
 
-\newcommand{\keywords}{this, that, more} % Keywords for your thesis
+\newcommand{\keywords}{Delay-Tolerant Networking, DTN, Email} % Keywords for your thesis
 \newcommand{\school}{\href{https://www.tcd.ie/scss/}{School of Computer Science and Statistics}} % Your school's name and URL, this is used in the title page
 
 %% Comment out the next line if you don't want a department to appear
@@ -146,12 +146,11 @@
 % Signed:~\rule{5cm}{0.3pt}\hfill Date:~\rule{5cm}{0.3pt}
 
 
-% \newpage
-% \chapter{Abstract}
+\newpage
+\chapter{Abstract}
 % A short summary of the problem investigated, the approach taken and the key findings. This should not be more that around 400 words.
 
 % The must be on a separate page.
-
 
 % what’s the title for our title
 % abstract one page
@@ -170,20 +169,24 @@
 % evaluation
 % conclusion
 
+Reliable communication is a critical challenge in deep-space networks, which are characterized by high latency and frequent disruptions. Adapting fundamental tools like email for these Delay-Tolerant Networking (DTN) environments is therefore essential.
 
+This dissertation evaluates a modern DTN-based email proposal (draft-johnson-dtn-interplanetary-smtp) to assess its feasibility and limitations in a simulated deep-space context. To facilitate this analysis, a Docker-based interplanetary network simulation platform was developed. The platform integrates Postfix, Thunderbird, ION-DTN, and the BPMail gateway to form a complete email stack capable of simulating realistic network delays.
 
+Experimental results show that the proposal performs well when the user and mail server are in the same network region. However, testing a user mobility scenario—where the user accesses their home mail server from a remote network—revealed a architectural flaw. The system's real-time protocols (IMAP/SMTP) bypass the DTN gateway, attempting a direct connection that fails as latency increases, rendering the system inoperable.
 
+To address this, a conceptual extension is proposed. This extension introduces a local agent to decouple direct user interactions from background server synchronization, offering a path forward to resolve the issues.
 
-% \newpage
-% \raggedright %\raggedright turns off justification and hypenation
+\newpage
+\raggedright %\raggedright turns off justification and hypenation
 
-% \section*{\Huge{Acknowledgements}}
-% Thanks Mum!
+\section*{\Huge{Acknowledgements}}
+I would like to thank my supervisor, Professor Stephen Farrell. Under his supervision, I was able to successfully complete this dissertation. His inspiration and suggestions regarding the project's direction were essential for the progress of this research.
 
-% You should acknowledge any help that you have received (for example from technical staff), or input provided by, for example, a company.
-% \newpage \tableofcontents
-% \newpage \listoffigures
-% \newpage \listoftables
+I am also grateful to my family and friends for their support and encouragement throughout this process.
+\newpage \tableofcontents
+\newpage \listoffigures
+\newpage \listoftables
 % \newpage
 % \section*{\Huge{Nomenclature}}
 % \begin{tabular}{lp{9cm}l}
@@ -211,15 +214,15 @@
 \input{introduction/introduction.tex}
 \input{Literature Review/Literature Review}
 \input{Experimental Methods/experiment}
-\input{Results/results}
+\input{Implementation/Implementation.tex}
+\input{Results/Results.tex}
 \input{conclusion/conclusion.tex}
-\input{background/background.tex}
-\input{project/project.tex}
+% \input{project/project.tex}
 \bibliographystyle{unsrtnat}
 \bibliography{bibs/sample}
 \appendix
 \renewcommand{\thechapter}{A\arabic{chapter}}
-\input{appendix/appendix.tex}
+% \input{appendix/appendix.tex}
 
 
 \end{document}

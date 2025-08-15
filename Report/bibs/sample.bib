@@ -1,3 +1,101 @@
+@techreport{NASA:2024acr,
+  author      = {{National Aeronautics and Space Administration}},
+  title       = {2024 Architecture Concept Review},
+  year        = 2024,
+  month       = dec,
+  type        = {White Paper},
+  url         = {https://www.nasa.gov/wp-content/uploads/2024/12/acr24-compiled-white-papers.pdf},
+}
+
+@article{Musk:2017,
+  author = {Musk, Elon},
+  title = {Making Humans a Multi-Planetary Species},
+  journal = {New Space},
+  volume = {5},
+  number = {2},
+  pages = {46-61},
+  year = 2017,
+  doi = {10.1089/space.2017.29009.emu},
+  URL = {https://doi.org/10.1089/space.2017.29009.emu},
+  eprint = {https://doi.org/10.1089/space.2017.29009.emu}
+}
+
+@inproceedings{DTN,
+  title={A delay-tolerant network architecture for challenged internets},
+  author={Fall, Kevin},
+  booktitle={Proceedings of the 2003 conference on Applications, technologies, architectures, and protocols for computer communications},
+  pages={27--34},
+  year={2003}
+}
+
+@article{sarkar2011survey,
+  title={A survey of transport protocols for deep space communication networks},
+  author={Sarkar, Mohanchur and Shukla, KK and Dasgupta, KS},
+  journal={International Journal of Computer Applications},
+  volume={31},
+  number={8},
+  pages={25--32},
+  year={2011},
+  publisher={International Journal of Computer Applications, 244 5 th Avenue,\# 1526, New~…}
+}
+
+@techreport{draft-johnson-dtn-interplanetary-smtp,
+  number =    {draft-johnson-dtn-interplanetary-smtp-01},
+  type =      {Internet-Draft},
+  institution =   {Internet Engineering Task Force},
+  publisher = {Internet Engineering Task Force},
+  note =      {Work in Progress},
+  url =       {https://datatracker.ietf.org/doc/draft-johnson-dtn-interplanetary-smtp/01/},
+  author =    {Scott M. Johnson},
+  title =     {{A method for delivery of SMTP messages over Bundle Protocol networks.}},
+  pagetotal = 7,
+  year =      2025,
+  month =     mar,
+  day =       18,
+  abstract =  {Delay and disruption tolerant networks are a foundational component of Interplanetary Internet communications. This document will treat several methods and modes of operation of Mail Transfer Agents in concert with Bundle Protocol Agents which allow SMTP interoperability between discrete IP networks bridged by DTNs, via Application Layer Gateways.},
+}
+
+@techreport{draft-blanchet-dtn-email-over-bp,
+  number =    {draft-blanchet-dtn-email-over-bp-05},
+  type =      {Internet-Draft},
+  institution =   {Internet Engineering Task Force},
+  publisher = {Internet Engineering Task Force},
+  note =      {Work in Progress},
+  url =       {https://datatracker.ietf.org/doc/draft-blanchet-dtn-email-over-bp/05/},
+  author =    {Marc Blanchet},
+  title =     {{Encapsulation of Email over Delay-Tolerant Networks(DTN) using the Bundle Protocol}},
+  pagetotal = 7,
+  year =      2025,
+  month =     mar,
+  day =       31,
+  abstract =  {This document describes the encapsulation of emails using RFC2442 format in the payload of bundles of the Bundle Protocol for the use case of Delay-Tolerant Networks(DTN) such as in space communications.},
+}
+
+@techreport{draft-johnson-dtn-interplanetary-dns,
+  number =    {draft-johnson-dtn-interplanetary-dns-04},
+  type =      {Internet-Draft},
+  institution =   {Internet Engineering Task Force},
+  publisher = {Internet Engineering Task Force},
+  note =      {Work in Progress},
+  url =       {https://datatracker.ietf.org/doc/draft-johnson-dtn-interplanetary-dns/04/},
+  author =    {Scott M. Johnson},
+  title =     {{An Interplanetary DNS Model}},
+  pagetotal = 8,
+  year =      2025,
+  month =     mar,
+  day =       20,
+  abstract =  {As human activity continues to spread beyond the Earth, so must the communications systems which support that activity continue to expand in scope. One such case, Internet naming, presents particular challenges when considering a multi-planet civilization. Proper operation of terrestrial DNS services and clients require constant, reasonably low latency connectivity to operate properly. These conditions are distinctly not present when considering interplanetary links; high latency and frequent disruption due to space weather events and general link availability prevail. To overcome these challenges in space networking, a delay and distruption tolerant (DTN) suite of protocols has been developed based on a store and forward mechanism, Bundle Protocol(BP). This DTN network, which optimizes to ensure bundle delivery, does not allow for end to end encapsulation of IP packets beyond terrestrial boundaries, as the latency still creates issues completing network transactions, even in the unlikely event of continuous link availability.},
+}
+
+@online{bpmail,
+  author    = {Lance Batac and Brian Contreras and Adrian Flores Aquino and Jiahao Li and Sophia Liwag and Nathan Luu and Nicholas Martin and Antonio Ortega Guererro Jr and Anderson Godo Pena Reyes and Ryan Torrez and Jilei Zou},
+  title     = {BPMail: Utilities for Transferring Email over Bundle Protocol},
+  year      = {2025},
+  url       = {https://github.com/250MHz/bpmail},
+  urldate   = {2025-08-13}
+}
+
+
 @misc{rfc9171,
     series =    {Request for Comments},
     number =    9171,
@@ -111,14 +209,6 @@
   year={2004}
 }
 
-@inproceedings{fall2003delay,
-  title={A delay-tolerant network architecture for challenged internets},
-  author={Fall, Kevin},
-  booktitle={Proceedings of the 2003 conference on Applications, technologies, architectures, and protocols for computer communications},
-  pages={27--34},
-  year={2003}
-}
-
 @misc{rfc5321,
     series =    {Request for Comments},
     number =    5321,
@@ -134,7 +224,106 @@
     abstract =  {This document is a specification of the basic protocol for Internet electronic mail transport. It consolidates, updates, and clarifies several previous documents, making all or parts of most of them obsolete. It covers the SMTP extension mechanisms and best practices for the contemporary Internet, but does not provide details about particular extensions. Although SMTP was designed as a mail transport and delivery protocol, this specification also contains information that is important to its use as a "mail submission" protocol for "split-UA" (User Agent) mail reading systems and mobile environments. {[}STANDARDS-TRACK{]}},
 }
 
+@misc{MaildirSpec,
+  author       = {Bernstein, D. J.},
+  title        = {Using maildir format},
+  url          = {https://cr.yp.to/proto/maildir.html},
+  year         = {1996},
+  note         = {Accessed: 14-Aug-2025}
+}
 
+@techreport{rfc1939,
+  author      = {Myers, J. and Rose, M.},
+  title       = {Post Office Protocol - Version 3},
+  type        = {RFC},
+  number      = {1939},
+  institution = {Internet Engineering Task Force (IETF)},
+  year        = {1996},
+  month       = {May},
+  doi         = {10.17487/RFC1939},
+  url         = {https://www.rfc-editor.org/info/rfc1939}
+}
+
+@techreport{rfc9051,
+  author      = {Melnikov, A. and Cridland, N. and Black, D.},
+  title       = {Internet Message Access Protocol (IMAP) - Version 4rev2},
+  type        = {RFC},
+  number      = {9051},
+  institution = {Internet Engineering Task Force (IETF)},
+  year        = {2021},
+  month       = {August},
+  doi         = {10.17487/RFC9051},
+  url         = {https://www.rfc-editor.org/info/rfc9051}
+}
+
+@article{Docker,
+  title={Docker: lightweight linux containers for consistent development and deployment},
+  author={Merkel, Dirk and others},
+  journal={Linux j},
+  volume={239},
+  number={2},
+  pages={2},
+  year={2014}
+}
+
+@article{DockerRepo,
+  title={An introduction to Docker for reproducible research},
+  author={Boettiger, Carl},
+  journal={ACM SIGOPS Operating Systems Review},
+  volume={49},
+  number={1},
+  pages={71--79},
+  year={2015},
+  publisher={ACM New York, NY, USA}
+}
+
+@inproceedings{DockerPerfComp,
+  title={An updated performance comparison of virtual machines and linux containers},
+  author={Felter, Wes and Ferreira, Alexandre and Rajamony, Ram and Rubio, Juan},
+  booktitle={2015 IEEE international symposium on performance analysis of systems and software (ISPASS)},
+  pages={171--172},
+  year={2015},
+  organization={IEEE}
+}
+
+@article{burleigh2007interplanetary,
+  title={Interplanetary overlay network: An implementation of the dtn bundle protocol},
+  author={Burleigh, Scott},
+  year={2007},
+  publisher={Pasadena, CA: Jet Propulsion Laboratory, National Aeronautics and Space~…}
+}
+
+@INPROCEEDINGS{bull2024network,
+  author={Bull, Ronny L. and Dudukovich, Rachel M. and Fraire, Juan A. and Kortas, Nadia and Kassouf-Short, Robert and Smith, Aaron and Schweinsberg, Ethan},
+  booktitle={IEEE INFOCOM 2024 - IEEE Conference on Computer Communications Workshops (INFOCOM WKSHPS)}, 
+  title={Network Emulation Testbed Capabilities for Prototyping Space DTN Software and Protocols}, 
+  year=2024,
+  pages={1-8},
+  keywords={Surveys;Protocols;Satellites;Conferences;Emulation;NASA;Software;Space and Satellite Networking;Delay/Disruption Tolerant Networking (DTN);Bundle Protocol (BPv7);Network Emulation and Simulation},
+  doi={10.1109/INFOCOMWKSHPS61880.2024.10620672}
+}
+
+@misc{ipnsig2023_home,
+  author       = {{IPNSIG}},
+  title        = {Internet Society Interplanetary Chapter},
+  howpublished = {\url{https://ipnsig.org/}},
+  note         = {Accessed: 2023-12-27}
+}
+
+@misc{ipnsig2023_bp_impl,
+  author       = {{IPNSIG} PWG},
+  title        = {Bundle Protocol Implementations},
+  year         = {2023},
+  howpublished = {\url{https://ipnsig-pwg.github.io/}},
+  note         = {Accessed: 2023-12-27}
+}
+
+@inproceedings{EmulatorSurvey,
+  title={A comparative study of network link emulators},
+  author={Nussbaum, Lucas and Richard, Olivier},
+  booktitle={Communications and Networking Simulation Symposium (CNS'09)},
+  year={2009}
+}
 
 @article{fitzpatrick2003flow,
   title={Flow/acoustic interactions of two cylinders in cross-flow},
